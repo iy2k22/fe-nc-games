@@ -7,7 +7,11 @@ const ReviewList = ({ category }) => {
   useEffect(() => {
     getReviews().then(({ reviews }) => {
       console.log(reviews);
-      setReviews(category ? reviews.filter((review) => review.category === category) : reviews);
+      setReviews(
+        category
+          ? reviews.filter((review) => review.category === category)
+          : reviews
+      );
     });
   }, [category]);
   return (
