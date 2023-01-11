@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
 import { getReviews } from "../api";
+import { Loading } from "./Loading";
 
 const ReviewList = () => {
   const [isLoading, setLoading] = useState(false);
@@ -12,7 +13,7 @@ const ReviewList = () => {
       setReviews(reviews);
     });
   }, []);
-  return isLoading ? <h1>Loading...</h1> : (
+  return isLoading ? <Loading /> : (
     <ul>
       {reviews.map((review) => (
         <li>

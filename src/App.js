@@ -4,6 +4,7 @@ import ReviewList from "./components/ReviewList";
 import Review from "./components/Review";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
+import CommentList from "./components/CommentList";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
         <Routes>
           <Route path="/reviews" element={<ReviewList />}></Route>
           <Route path="/reviews/:review_id" element={<Review />}></Route>
+          <Route
+            path="/reviews/:review_id/comments"
+            element={<CommentList />}
+          ></Route>
         </Routes>
       </div>
     </BrowserRouter>
