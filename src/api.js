@@ -9,3 +9,5 @@ export const getReviews = () => fetchAndRetrieve("/reviews");
 export const getSingleReview = (id) => fetchAndRetrieve(`/reviews/${id}`);
 
 export const getComments = (id) => fetchAndRetrieve(`/reviews/${id}/comments`);
+
+export const getCategories = () => fetchAndRetrieve("/categories");

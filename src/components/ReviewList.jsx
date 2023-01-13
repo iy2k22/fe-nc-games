@@ -2,17 +2,19 @@ import { useEffect, useState } from "react";
 import ReviewCard from "./ReviewCard";
 import { getReviews } from "../api";
 import { Loading } from "./Loading";
+import { useParams } from "react-router-dom";
 
 const ReviewList = () => {
+  const { category } = useParams();
   const [isLoading, setLoading] = useState(false);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     setLoading(true);
     getReviews().then(({ reviews }) => {
       setLoading(false);
-      setReviews(reviews);
+      setReviews(category ? reviews.filter((review) => review.category === category) : reviews);
     });
-  }, []);
+  }, [category]);
   return isLoading ? <Loading /> : (
     <ul>
       {reviews.map((review) => (
